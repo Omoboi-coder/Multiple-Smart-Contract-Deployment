@@ -43,6 +43,15 @@ contract SaveEther {
         return address(this).balance;
     }
 
+    function WithdrawNow(uint _amount) external{
+        require(msg.sender !=address(0),"Address zero detected");
+        uint userSavings = balances[msg.sender];
+        require(_amount <= userSavings );
+        (bool result, bytes memory data) = payable(msg.sender).call{value: _amount}("");
+        require(result, "failed");
+
+    }
+
     receive() external payable {}
     fallback() external {}
 }

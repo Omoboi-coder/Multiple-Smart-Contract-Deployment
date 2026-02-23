@@ -35,7 +35,7 @@ contract ERC20 {
 
     function allowance(address _owner, address _spender) external view returns (uint256 remaining) {
         return allowances[_owner][_spender];
-    }
+  }
 
     function mint(address _owner, uint256 _amount) external {
         require(_owner != address(0), "Can't transfer to address zero");

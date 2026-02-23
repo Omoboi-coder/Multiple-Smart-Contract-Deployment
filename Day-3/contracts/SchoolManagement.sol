@@ -39,7 +39,7 @@ contract SchoolManagement {
         bool suspended;
     }
 
-    mapping(uint64 => uint256) public schoolFeesPerLevel;
+    mapping(uint64 => uint256) public schoolFeesPerLevel;//schoolFeesPerLevel[2]
     mapping(address => Student) public registeredStudents;
     mapping(address => Staff) public registeredStaffs;
 
@@ -59,7 +59,7 @@ contract SchoolManagement {
         schoolFeesPerLevel[200] = 1000;
         schoolFeesPerLevel[300] = 1500;
         schoolFeesPerLevel[400] = 2000;
-    }
+    }   
 
     modifier onlyOwner() {
         require(msg.sender == admin, "Unauthorized");
